@@ -1,0 +1,17 @@
+﻿{
+	"$type": "Form",
+	"Title": "Newton Engine Sample",
+	"ClientSize": "800, 600",
+	"Padding": "0",
+	"WindowState": "Maximized",
+	"Content": {
+		"$type": "DynamicLayout",
+		"Rows": [
+			{
+				"$type": "Drawable",
+				"$name": "Canvas",
+				"BackgroundColor": "Black"
+			}
+		]
+	}
+}
