@@ -322,7 +322,7 @@ namespace NewtonEngine {
                     });
                     parent.Cursor = c;
                 }
-            };            
+            };
             parent.KeyUp += (object s, KeyEventArgs e) => {
 #if WINFORMS
                 switch(e.KeyCode) {
@@ -356,7 +356,7 @@ namespace NewtonEngine {
 #if WINFORMS
                     case Keys.OemPeriod:
 #else
-                        case Keys.Period:
+                    case Keys.Period:
 #endif
                         if(simSpeed < 10) simSpeed += 0.1f;
                         UpdateTitlebarText();
@@ -364,7 +364,7 @@ namespace NewtonEngine {
 #if WINFORMS
                     case Keys.Oemcomma:
 #else
-                        case Keys.Comma:
+                    case Keys.Comma:
 #endif
                         if(simSpeed > 0.1) simSpeed -= 0.1f;
                         UpdateTitlebarText();
@@ -409,8 +409,16 @@ namespace NewtonEngine {
 
             bodies.ForEach((o) => {
                 if(o.History.Count > 1)
-                    using(Pen p = new Pen(Color.FromArgb((int)o.Color.R, (int)o.Color.G, (int)o.Color.B, 128), 2))
+#if WINFORMS
+                    using(Pen p = new Pen(Color.FromArgb(96, o.Color), 2))
+                        g.DrawCurve(p, Array.ConvertAll(o.History.ToArray(), i => (PointF)i));
+#else
+                    using(Pen p = new Pen(Color.FromArgb((int)(255.0f * o.Color.R),
+                                                         (int)(255.0f * o.Color.G),
+                                                         (int)(255.0f * o.Color.B),
+                                                         96), 2))
                         g.DrawLines(p, Array.ConvertAll(o.History.ToArray(), i => (PointF)i));
+#endif
                 o.Render(g);
             });
 
