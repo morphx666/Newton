@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Body2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Vector.cs" />
   </ItemGroup>
 </Project>
