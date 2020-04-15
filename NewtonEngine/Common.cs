@@ -46,20 +46,20 @@ namespace NewtonEngine {
         private bool isClosing = false;
 
 #if WINFORMS
-        private Form parent;
-        private Form canvas;
+        private readonly Form parent;
+        private readonly Form canvas;
 #else
         private Form parent;
         private Drawable canvas;
 #endif
 
-        public bool ShowHelp = true;
-        public readonly Font HelpFont;
-        public const string HelpInfo = "[ENTER] = Restart Simulation\n" +
-                                        "[SPACE] = Switch Simulation Mode\n" +
-                                        "[<] [>] = Change Simulation Speed\n" +
-                                        "[+] [-] = Change Scale/Zoom\n" +
-                                        "[F1]    = Toggle this information";
+        private bool showHelp = true;
+        private readonly Font helpFont;
+        private const string helpInfo = "[ENTER] = Restart Simulation\n" +
+                                       "[SPACE] = Switch Simulation Mode\n" +
+                                       "[<] [>] = Change Simulation Speed\n" +
+                                       "[+] [-] = Change Scale/Zoom\n" +
+                                       "[F1]    = Toggle this information";
 
         public Common(object parentForm, object etoSurface) {
 #if WINFORMS
@@ -100,7 +100,7 @@ namespace NewtonEngine {
             };
 #endif
 
-            HelpFont = GetMonoFont();
+            helpFont = GetMonoFont();
         }
 
         private Font GetMonoFont() {
@@ -369,6 +369,9 @@ namespace NewtonEngine {
                         if(simSpeed > 0.1) simSpeed -= 0.1f;
                         UpdateTitlebarText();
                         break;
+                    case Keys.F1:
+                        showHelp = !showHelp;
+                        break;
                 }
             };
         }
@@ -435,13 +438,13 @@ namespace NewtonEngine {
         }
 
         public void RenderHelp(Graphics g) {
-            if(ShowHelp) {
+            if(showHelp) {
 #if WINFORMS
                 g.ResetTransform();
-                g.DrawString(HelpInfo, HelpFont, Brushes.White, 5, 5);
+                g.DrawString(helpInfo, helpFont, Brushes.White, 5, 5);
 #else
                 g.RestoreTransform();
-                g.DrawText(HelpFont, Colors.White, 5, 5, HelpInfo);
+                g.DrawText(helpFont, Colors.White, 5, 5, helpInfo);
 #endif
             }
         }
