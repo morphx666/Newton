@@ -117,6 +117,8 @@ namespace Newton {
             for(int i = 0; i < newVels.Length; i++)
                 if(newVels[i] != null) {
                     bodies[i].vel = newVels[i];
+                    if(bodies[i].vel.Magnitude > 1000.0) // Prevenet the simulation from going bonkers
+                        bodies[i].vel.Magnitude = 1000.0;
                     bodies[i].TranslateAbs(bodies[i].lastPos); // Reset to position before the collision
 
                 }

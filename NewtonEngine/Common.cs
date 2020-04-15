@@ -174,7 +174,7 @@ namespace NewtonEngine {
             switch(mode) {
                 case Modes.Standard:
                     Random rnd = new Random();
-                    int n = rnd.Next(3, 25);
+                    int n = rnd.Next(3, (int)Math.Sqrt(bounds.Width));
                     double mass;
                     double x;
                     double y;
