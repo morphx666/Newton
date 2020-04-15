@@ -322,8 +322,8 @@ namespace NewtonEngine {
                     });
                     parent.Cursor = c;
                 }
-            };
-            parent.KeyDown += (object s, KeyEventArgs e) => {
+            };            
+            parent.KeyUp += (object s, KeyEventArgs e) => {
 #if WINFORMS
                 switch(e.KeyCode) {
 #else
