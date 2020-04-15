@@ -4,9 +4,17 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+    <OutputPath>..\..\Release\Wpf\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <OutputPath>..\..\Release\Wpf\</OutputPath>
+  </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Newton\Newton.csproj" />
+    <ProjectReference Include="..\Newton\Newton(Eto).csproj" />
   </ItemGroup>
 
   <ItemGroup>

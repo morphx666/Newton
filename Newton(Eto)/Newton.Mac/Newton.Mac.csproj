@@ -7,8 +7,16 @@
     <RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
 	
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+    <OutputPath>..\..\Release\Mac\</OutputPath>
+  </PropertyGroup>
+	
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <OutputPath>..\..\Release\Mac\</OutputPath>
+  </PropertyGroup>
+	
   <ItemGroup>
-    <ProjectReference Include="..\Newton\Newton.csproj" />
+    <ProjectReference Include="..\Newton\Newton(Eto).csproj" />
   </ItemGroup>
 	
   <ItemGroup>

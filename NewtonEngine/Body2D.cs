@@ -2,8 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+#if WINFORMS
+using System.Drawing;
+#else
 using Eto.Drawing;
+#endif
+using System.Linq;
 
 namespace Newton {
     public class Body2D : Vector, ICloneable {
@@ -52,7 +56,11 @@ namespace Newton {
 
             Mass = mass;
 
+#if WINFORMS
+            Color = Color.Gray;
+#else
             Color = Colors.Gray;
+#endif
         }
 
         public Body2D(double mass, double x, double y, Color color) : this(mass, x, y) {

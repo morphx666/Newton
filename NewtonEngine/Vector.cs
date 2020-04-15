@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+#if WINFORMS
 using System.Drawing;
+#else
+using Eto.Drawing;
+#endif
 
 namespace RayCasting {
     public struct PointD {
@@ -48,7 +52,11 @@ namespace RayCasting {
         private PointD mOrigin;
         private double angleCos = 1.0;
         private double angleSin = 0.0;
+#if WINFORMS
         private Color mColor = Color.White;
+#else
+        private Color mColor = Colors.White;
+#endif
 
         private readonly int hc = Guid.NewGuid().GetHashCode();
 

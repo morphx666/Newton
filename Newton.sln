@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newton", "Newton(Eto)\Newton\Newton.csproj", "{56C1A6D5-04FD-4137-85C9-4AF768ACFB82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newton(Eto)", "Newton(Eto)\Newton\Newton(Eto).csproj", "{56C1A6D5-04FD-4137-85C9-4AF768ACFB82}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newton.Gtk", "Newton(Eto)\Newton.Gtk\Newton.Gtk.csproj", "{13B84529-5744-41ED-B4F7-F266A96B392F}"
 EndProject
@@ -13,7 +13,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newton.Wpf", "Newton(Eto)\N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newton(WinFoms)", "Newton(WinForms)\Newton(WinFoms).csproj", "{59883FED-38BF-45D1-84B1-85E48D5F961C}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NewtonEngine", "NewtonEngine\NewtonEngine.shproj", "{64A966BE-100C-4116-B5D1-D06697CB4F5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Eto", "Eto", "{BCBB5B9F-18A6-4791-930A-8DE134C75240}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{41320920-0C50-4276-A0C5-7B44E3043421}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{DED44000-FE5D-426D-BC73-839987259E6E}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		NewtonEngine\NewtonEngine.projitems*{56c1a6d5-04fd-4137-85c9-4af768acfb82}*SharedItemsImports = 5
+		NewtonEngine\NewtonEngine.projitems*{59883fed-38bf-45d1-84b1-85e48d5f961c}*SharedItemsImports = 5
+		NewtonEngine\NewtonEngine.projitems*{64a966be-100c-4116-b5d1-d06697cb4f5c}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -42,6 +55,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56C1A6D5-04FD-4137-85C9-4AF768ACFB82} = {BCBB5B9F-18A6-4791-930A-8DE134C75240}
+		{13B84529-5744-41ED-B4F7-F266A96B392F} = {DED44000-FE5D-426D-BC73-839987259E6E}
+		{1B591FEE-3B88-4D03-B00B-809D44EB1012} = {DED44000-FE5D-426D-BC73-839987259E6E}
+		{D488A325-44AF-4E79-BDA4-266AE9427E1E} = {DED44000-FE5D-426D-BC73-839987259E6E}
+		{59883FED-38BF-45D1-84B1-85E48D5F961C} = {41320920-0C50-4276-A0C5-7B44E3043421}
+		{DED44000-FE5D-426D-BC73-839987259E6E} = {BCBB5B9F-18A6-4791-930A-8DE134C75240}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F33859D7-1BDB-43B8-A3B5-57E8F783585E}
