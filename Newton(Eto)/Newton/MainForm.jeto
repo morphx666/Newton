@@ -10,6 +10,7 @@
 			{
 				"$type": "Drawable",
 				"$name": "Canvas",
+				"CanFocus": "true",
 				"BackgroundColor": "Black"
 			}
 		]

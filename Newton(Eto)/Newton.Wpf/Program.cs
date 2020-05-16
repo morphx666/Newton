@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using Eto;
-using Eto.Drawing;
 using Eto.Forms;
 
 namespace Newton.Wpf {

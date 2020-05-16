@@ -1,7 +1,6 @@
-﻿using RayCasting;
+﻿using MorphxLibs;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 #if WINFORMS
 using System.Drawing;
 #else
@@ -126,7 +125,7 @@ namespace Newton {
 
         private static Body2D GetBodiesSum(List<Body2D> bodies, int[] colBodies) {
             Body2D newBody = null;
-            PointD p = new PointD();
+            PointD p = new PointD(); // Centroid
 
             for(int i = 0; i < colBodies.Length; i++) {
                 if(newBody == null) {
@@ -184,8 +183,8 @@ namespace Newton {
 
                 double t1 = v1 * Math.Cos(a1 - phi) * (m1 - m2);
                 double t2 = 2 * m2 * v2 * Math.Cos(a2 - phi);
-                double t3x = v1 * Math.Sin(a1 - phi) * Math.Cos(phi + PI90);
-                double t3y = v1 * Math.Sin(a1 - phi) * Math.Sin(phi + PI90);
+                double t3x = v1 * Math.Sin(a1 - phi) * Math.Cos(phi + Constants.PI90);
+                double t3y = v1 * Math.Sin(a1 - phi) * Math.Sin(phi + Constants.PI90);
                 double f = (t1 + t2) / (m1 + m2);
 
                 double vx = f * Math.Cos(phi) + t3x;
@@ -205,21 +204,21 @@ namespace Newton {
         private void CheckBoundsCollisions(RectangleF bounds) {
             if(X1 - m2 + e < bounds.X) { // Left Bound
                 TranslateAbs(bounds.X + m2, Y1);
-                vel.Angle = 0 + PI180 - vel.Angle;
+                vel.Angle = 0 + Constants.PI180 - vel.Angle;
                 vel.Magnitude *= Restitution;
             } else if(X1 + m2 - e > bounds.Right) { // Right Bound
                 TranslateAbs(bounds.Right - m2, Y1);
-                vel.Angle = PI180 + 0 - vel.Angle;
+                vel.Angle = Constants.PI180 + 0 - vel.Angle;
                 vel.Magnitude *= Restitution;
             }
 
             if(Y1 + m2 - e > bounds.Bottom) { // Top Bound
                 TranslateAbs(X1, bounds.Bottom - m2);
-                vel.Angle = PI270 + PI90 - vel.Angle;
+                vel.Angle = Constants.PI270 + Constants.PI90 - vel.Angle;
                 vel.Magnitude *= Restitution;
             } else if(Y1 - m2 + e < bounds.Y) { // Bottom Bound
                 TranslateAbs(X1, bounds.Y + m2);
-                vel.Angle = PI90 + PI270 - vel.Angle;
+                vel.Angle = Constants.PI90 + Constants.PI270 - vel.Angle;
                 vel.Magnitude *= Restitution;
             }
         }

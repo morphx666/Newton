@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MorphxLibs;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 #if WINFORMS
@@ -12,7 +12,6 @@ using Eto.Drawing;
 using Eto.Forms;
 #endif
 using Newton;
-using RayCasting;
 
 namespace NewtonEngine {
     public class Common {
@@ -68,6 +67,7 @@ namespace NewtonEngine {
 #else
             parent = (MainForm)parentForm;
             canvas = (Drawable)etoSurface;
+            canvas.Focus();
 #endif
 
             fpsDelay = (int)(dtFactor / fps);
@@ -232,24 +232,24 @@ namespace NewtonEngine {
                     bodies.Add(new Body2D(200, 0, 0) { Color = Color.Yellow, Movable = false });
 
                     bodies.Add(new Body2D(30, 700, 0) { Color = Color.DeepSkyBlue, HistorySize = 1000 });
-                    bodies[1].Velocity = new Vector(200, 90 * Vector.ToRad, bodies[1].Origin);
+                    bodies[1].Velocity = new Vector(200, 90 * Constants.ToRad, bodies[1].Origin);
 
                     bodies.Add(new Body2D(20, 0, -500) { Color = Color.OrangeRed, HistorySize = 1000 });
-                    bodies[2].Velocity = new Vector(200, 0 * Vector.ToRad, bodies[2].Origin);
+                    bodies[2].Velocity = new Vector(200, 0 * Constants.ToRad, bodies[2].Origin);
 
                     bodies.Add(new Body2D(40, -500, 0) { Color = Color.YellowGreen, HistorySize = 1000 });
-                    bodies[3].Velocity = new Vector(220, 290 * Vector.ToRad, bodies[3].Origin);
+                    bodies[3].Velocity = new Vector(220, 290 * Constants.ToRad, bodies[3].Origin);
 #else
                     bodies.Add(new Body2D(200, 0, 0) { Color = Colors.Yellow, Movable = false });
 
                     bodies.Add(new Body2D(30, 700, 0) { Color = Colors.DeepSkyBlue, HistorySize = 1000 });
-                    bodies[1].Velocity = new Vector(200, 90 * Vector.ToRad, bodies[1].Origin);
+                    bodies[1].Velocity = new Vector(200, 90 * Constants.ToRad, bodies[1].Origin);
 
                     bodies.Add(new Body2D(20, 0, -500) { Color = Colors.OrangeRed, HistorySize = 1000 });
-                    bodies[2].Velocity = new Vector(200, 0 * Vector.ToRad, bodies[2].Origin);
+                    bodies[2].Velocity = new Vector(200, 0 * Constants.ToRad, bodies[2].Origin);
 
                     bodies.Add(new Body2D(40, -500, 0) { Color = Colors.YellowGreen, HistorySize = 1000 });
-                    bodies[3].Velocity = new Vector(220, 290 * Vector.ToRad, bodies[3].Origin);
+                    bodies[3].Velocity = new Vector(220, 290 * Constants.ToRad, bodies[3].Origin);
 #endif
                     break;
             }
@@ -323,7 +323,7 @@ namespace NewtonEngine {
                     parent.Cursor = c;
                 }
             };
-            parent.KeyUp += (object s, KeyEventArgs e) => {
+            canvas.KeyDown += (object s, KeyEventArgs e) => {
 #if WINFORMS
                 switch(e.KeyCode) {
 #else
