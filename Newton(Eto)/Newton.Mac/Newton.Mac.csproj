@@ -5,6 +5,10 @@
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
     
     <RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
+    
+    <AssemblyVersion>2021.11.5.5</AssemblyVersion>
+    
+    <FileVersion>2021.11.5.5</FileVersion>
   </PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
@@ -20,7 +24,7 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="Eto.Platform.Mac64" Version="2.5.0" />
+    <PackageReference Include="Eto.Platform.Mac64" Version="2.5.11" />
   </ItemGroup>
 	
 </Project>

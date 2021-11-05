@@ -74,7 +74,7 @@ namespace Newton {
 
             if(Movable) {
                 if(forces.Count > 0) {
-                    acc = forces[0];
+                    acc = forces[0]; // Gravity
                     for(int i = 1; i < forces.Count; i++) acc += forces[i] / mMass;
                 }
                 vel += acc;
@@ -190,7 +190,7 @@ namespace Newton {
                 double vx = f * Math.Cos(phi) + t3x;
                 double vy = f * Math.Sin(phi) + t3y;
 
-                return (new Vector(PointD.Empty, new PointD(vx, vy)), iv);
+                return (new Vector(vx, vy), iv);
 
                 // 1D Collision
                 //newVels[i] = (objects[i].Velocity * (objects[i].Mass - objects[j].Mass) +
