@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-    <AssemblyVersion>2021.11.5.10</AssemblyVersion>
-    <FileVersion>2021.11.5.10</FileVersion>
+    <AssemblyVersion>2021.11.5.12</AssemblyVersion>
+    <FileVersion>2021.11.5.12</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">

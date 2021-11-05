@@ -21,7 +21,7 @@ namespace NewtonEngine {
             Standard,
             Planetarium
         }
-
+        
         private readonly Vector gravity = new Vector(0, -9.8);
         private readonly Vector wind = new Vector(15.0, 0);
         private readonly List<Vector> forces = new List<Vector>();
@@ -58,7 +58,8 @@ namespace NewtonEngine {
                                        "[SPACE] = Switch Simulation Mode\n" +
                                        "[<] [>] = Change Simulation Speed\n" +
                                        "[+] [-] = Change Scale/Zoom\n" +
-                                       "[F1]    = Toggle this information";
+                                       "[F1]    = Toggle this information\n" +
+                                       "[ESC]   = Exit";
 
         public Common(object parentForm, object etoSurface) {
 #if WINFORMS
@@ -336,6 +337,7 @@ namespace NewtonEngine {
                             UpdateTitlebarText();
                         }
                         break;
+
                     case Keys.Subtract:
                         if(scale > 0.1f) {
                             scale -= 0.1f;
@@ -343,9 +345,11 @@ namespace NewtonEngine {
                             UpdateTitlebarText();
                         }
                         break;
+
                     case Keys.Enter:
                         CreateRandomObjects();
                         break;
+
                     case Keys.Space:
                         if(mode == Modes.Standard)
                             mode = Modes.Planetarium;
@@ -353,6 +357,7 @@ namespace NewtonEngine {
                             mode = Modes.Standard;
                         CreateRandomObjects();
                         break;
+
 #if WINFORMS
                     case Keys.OemPeriod:
 #else
@@ -361,6 +366,7 @@ namespace NewtonEngine {
                         if(simSpeed < 10) simSpeed += 0.1f;
                         UpdateTitlebarText();
                         break;
+
 #if WINFORMS
                     case Keys.Oemcomma:
 #else
@@ -369,8 +375,13 @@ namespace NewtonEngine {
                         if(simSpeed > 0.1) simSpeed -= 0.1f;
                         UpdateTitlebarText();
                         break;
+
                     case Keys.F1:
                         showHelp = !showHelp;
+                        break;
+
+                    case Keys.Escape:
+                        parent.Close();
                         break;
                 }
             };

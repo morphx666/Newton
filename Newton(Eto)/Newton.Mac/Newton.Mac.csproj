@@ -6,9 +6,9 @@
     
     <RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
     
-    <AssemblyVersion>2021.11.5.5</AssemblyVersion>
+    <AssemblyVersion>2021.11.5.7</AssemblyVersion>
     
-    <FileVersion>2021.11.5.5</FileVersion>
+    <FileVersion>2021.11.5.7</FileVersion>
   </PropertyGroup>
 	
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
